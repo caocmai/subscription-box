@@ -31,7 +31,15 @@ class LoginView: UIViewController {
     
     let textField: UITextField = {
         let text = UITextField()
-        text.backgroundColor = .blue
+        text.backgroundColor = .gray
+        text.translatesAutoresizingMaskIntoConstraints = false
+
+        return text
+    }()
+    
+    let passwordField: UITextField = {
+        let text = UITextField()
+        text.backgroundColor = .gray
         text.translatesAutoresizingMaskIntoConstraints = false
 
         return text
@@ -46,9 +54,18 @@ class LoginView: UIViewController {
     }
     
     func createButton(){
-        stackView.addSubview(loginButton)
-        loginButton.setTitle("LOGIN", for: .normal)
+//        stackView.addArrangedSubview(loginButton)
+        view.addSubview(loginButton)
+        loginButton.setTitle("TO HOME", for: .normal)
+        
         loginButton.addTarget(self, action: #selector(toHomePage), for: .touchUpInside)
+        
+//        loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
+//        loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+//        loginButton.topAnchor.constraint(equalTo: stackView.bottomAnchor).isActive = true
+//        loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+//        
+        
         loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
         loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
         loginButton.topAnchor.constraint(equalTo: stackView.bottomAnchor).isActive = true
@@ -56,18 +73,43 @@ class LoginView: UIViewController {
 
     }
     
-    @objc func toHomePage(_ sender: UIButton){
+
+//    @objc func toHomePage(){
+//        print("to home page")
+//        //        let nextVC = LoginView()
+//        //        self.navigationController?.pushViewController(nextVC, animated: true)
+//        let navigationController = UINavigationController(rootViewController: HomeVC())
+//        self.view.window!.rootViewController = navigationController
+//
+//        }
+    
+    
+    @objc func toHomePage(){
         print("to home page")
-        let nextVC = HomeVC()
-        self.navigationController?.pushViewController(nextVC, animated: true)
+        let navigationController = UINavigationController(rootViewController: HomeVC())
+        self.view.window!.rootViewController = navigationController
     }
+    
+
     
     func createTextField() {
         view.addSubview(textField)
-        textField.text = "this is login page"
+        textField.placeholder = "Username"
         textField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        textField.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+//        textField.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        textField.bottomAnchor.constraint(equalTo: loginButton.topAnchor, constant: -60).isActive = true
+        
 
+    }
+    
+    func createPasswordField() {
+        view.addSubview(passwordField)
+        passwordField.placeholder = "Password"
+        passwordField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//        textField.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        passwordField.bottomAnchor.constraint(equalTo: loginButton.topAnchor, constant: -30).isActive = true
+        passwordField.leadingAnchor.constraint(equalTo: textField.leadingAnchor).isActive = true
+    
     }
     
 //    func createPage(){
@@ -80,6 +122,7 @@ class LoginView: UIViewController {
         createStackView()
         createButton()
         createTextField()
+        createPasswordField()
         view.backgroundColor = .orange
 
 

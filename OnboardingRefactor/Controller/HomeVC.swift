@@ -58,8 +58,9 @@ class HomeVC: UIViewController {
     func createButton(){
         stackView.addArrangedSubview(boxButton)
         stackView.addArrangedSubview(newButton)
-        newButton.setTitle("NEW BOX", for: .normal)
         boxButton.setTitle("BOXES", for: .normal)
+        boxButton.addTarget(self, action: #selector(toListOfBoxesVC), for: .touchUpInside)
+        newButton.setTitle("NEW BOX", for: .normal)
         boxButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
         boxButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
         boxButton.topAnchor.constraint(equalTo: stackView.bottomAnchor).isActive = true
@@ -67,7 +68,11 @@ class HomeVC: UIViewController {
 
     }
     
-    
+    @objc func toListOfBoxesVC() {
+        print("to table of boxes VC")
+        let nextVC = ListOfBoxesVC()
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
     
     func createTextField() {
         view.addSubview(textField)
@@ -75,10 +80,8 @@ class HomeVC: UIViewController {
         textField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 //        textField.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         textField.bottomAnchor.constraint(equalTo: stackView.topAnchor, constant: -20).isActive = true
-
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         createStackView()

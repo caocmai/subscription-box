@@ -54,7 +54,7 @@ class OnboardingPage: UIView {
     let continueButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("BUTTON", for: .normal)
+        button.setTitle("CONTINUE", for: .normal)
         button.setTitleColor(UIColor.orange, for: .normal)
         button.layer.cornerRadius = 10
         button.layer.masksToBounds = true

@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     var secondView: OnboardingPage!
     var thirdView: OnboardingPage!
     var pagesArray: [OnboardingPage] = []
+
     
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -55,6 +56,7 @@ class ViewController: UIViewController {
         setViews()
         setPageControl()
     }
+
     
     func setScrollView() {
         scrollView.delegate = self
@@ -80,7 +82,9 @@ class ViewController: UIViewController {
         firstView = OnboardingPage(message: "page 1 is this one", imageName: "test1", isLastPage: false, color: .blue)
         secondView = OnboardingPage(message: "page 2 is now this", imageName: "test2", isLastPage: false, color: .orange)
         thirdView = OnboardingPage(message: "page 3 is the end", imageName: "test1", isLastPage: true, color: .green)
+        
         thirdView.continueButton.addTarget(self, action: #selector(toLoginPage), for: .touchUpInside)
+        
         pagesArray = [firstView, secondView, thirdView]
         
         for page in pagesArray{
@@ -92,9 +96,12 @@ class ViewController: UIViewController {
     
     @objc func toLoginPage(){
         print("to login page")
-        let nextVC = LoginView()
-        self.navigationController?.pushViewController(nextVC, animated: true)
-       }
+//        let nextVC = LoginView()
+//        self.navigationController?.pushViewController(nextVC, animated: true)
+//        let navigationController = UINavigationController(rootViewController: LoginView())
+        self.view.window!.rootViewController = LoginView()
+    }
+    
     
     func setPageControl(){
         view.addSubview(pageControl)
@@ -122,30 +129,5 @@ extension ViewController: UIScrollViewDelegate {
     }
 }
 
-//extension UINavigationController {
-//    /**
-//     It removes all view controllers from navigation controller then set the new root view controller and it pops.
-//
-//     - parameter vc: root view controller to set a new
-//     */
-//    func initRootViewController(vc: UIViewController, transitionType type: String = "kCATransitionFade", duration: CFTimeInterval = 0.3) {
-//        self.addTransition(transitionType: type, duration: duration)
-//        self.viewControllers.removeAll()
-//        self.pushViewController(vc, animated: false)
-//        self.popToRootViewController(animated: false)
-//    }
-//
-//    /**
-//     It adds the animation of navigation flow.
-//
-//     - parameter type: kCATransitionType, it means style of animation
-//     - parameter duration: CFTimeInterval, duration of animation
-//     */
-//    private func addTransition(transitionType type: String = "kCATransitionFade", duration: CFTimeInterval = 0.3) {
-//        let transition = CATransition()
-//        transition.duration = duration
-//        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-//        transition.type = CATransitionType(rawValue: type)
-//        self.view.layer.add(transition, forKey: nil)
-//    }
-//}
+
+
