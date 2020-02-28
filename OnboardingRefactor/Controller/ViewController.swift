@@ -79,9 +79,9 @@ class ViewController: UIViewController {
     
     // Using the custom view to get it to display properly
     func setViews(){
-        firstView = OnboardingPage(message: "page 1 is this one", imageName: "test1", isLastPage: false, color: .blue)
-        secondView = OnboardingPage(message: "page 2 is now this", imageName: "test2", isLastPage: false, color: .orange)
-        thirdView = OnboardingPage(message: "page 3 is the end", imageName: "test1", isLastPage: true, color: .green)
+        firstView = OnboardingPage(message: "Welcome to the amazing Exotic Fruit Box", imageName: "dragon", isLastPage: false, color: .blue)
+        secondView = OnboardingPage(message: "Exotic fruits delivered straight to your door", imageName: "starfruit", isLastPage: false, color: .orange)
+        thirdView = OnboardingPage(message: "Sign up now and discover amazing tasting fruits", imageName: "mangosteen", isLastPage: true, color: .brown)
         
         thirdView.continueButton.addTarget(self, action: #selector(toLoginPage), for: .touchUpInside)
         

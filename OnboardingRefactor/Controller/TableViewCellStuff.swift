@@ -22,4 +22,8 @@ class TableViewCellStuff: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setContents(box: Box) {
+        textLabel?.text = box.date
+    }
+    
 }

@@ -10,97 +10,80 @@ import UIKit
 
 class HomeVC: UIViewController {
     
-    let stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 20
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.distribution = .fillEqually
-        return stackView
+    var collectionView: UICollectionView!
+    
+    lazy var sections: [Section] = [
+        TitleSection(title: "Featured Categories"),
+        FeaturedSection(),
+        TitleSection(title: "Last Month's Favorites"),
+        FavoritesSection()
+    ]
+    
+    lazy var collectionViewLayout: UICollectionViewLayout = {
+        var sections = self.sections
+        let layout = UICollectionViewCompositionalLayout { (sectionIndex, environment) -> NSCollectionLayoutSection? in
+            return sections[sectionIndex].layoutSection()
+        }
+        return layout
     }()
     
-    let boxButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitleColor(UIColor.orange, for: .normal)
-        button.layer.cornerRadius = 10
-        button.layer.masksToBounds = true
-        button.backgroundColor = UIColor(white: 1.0, alpha: 0.9)
-        return button
-       }()
-    
-    let newButton: UIButton = {
-         let button = UIButton()
-         button.translatesAutoresizingMaskIntoConstraints = false
-         button.setTitleColor(UIColor.orange, for: .normal)
-         button.layer.cornerRadius = 10
-         button.layer.masksToBounds = true
-         button.backgroundColor = UIColor(white: 1.0, alpha: 0.9)
-         return button
-    }()
-    
-    let textField: UILabel = {
-        let text = UILabel()
-        text.backgroundColor = .blue
-        text.translatesAutoresizingMaskIntoConstraints = false
-
-        return text
-    }()
-    
-    func createStackView() {
-        view.addSubview(stackView)
-        stackView.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.65).isActive = true
-        stackView.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.5).isActive = true
-        stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-    }
-    
-    func createButton(){
-        stackView.addArrangedSubview(boxButton)
-        stackView.addArrangedSubview(newButton)
-        boxButton.setTitle("BOXES", for: .normal)
-        boxButton.addTarget(self, action: #selector(toListOfBoxesVC), for: .touchUpInside)
-        newButton.setTitle("NEW BOX", for: .normal)
-        boxButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
-        boxButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
-        boxButton.topAnchor.constraint(equalTo: stackView.bottomAnchor).isActive = true
-        boxButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-
-    }
-    
-    @objc func toListOfBoxesVC() {
-        print("to table of boxes VC")
-        let nextVC = ListOfBoxesVC()
-        self.navigationController?.pushViewController(nextVC, animated: true)
-    }
-    
-    func createTextField() {
-        view.addSubview(textField)
-        textField.text = "THis is HOMEPAGE"
-        textField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        textField.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        textField.bottomAnchor.constraint(equalTo: stackView.topAnchor, constant: -20).isActive = true
-    }
+    func setupCollectionView() {
+            collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: collectionViewLayout)
+            collectionView.dataSource = self
+    //        collectionView.delegate = self
+            collectionView.backgroundColor = UIColor.white
+            collectionView.register(UINib(nibName: "TitleCell", bundle: .main), forCellWithReuseIdentifier: TitleCell.identifier)
+            collectionView.register(UINib(nibName: "FeaturedCell", bundle: .main), forCellWithReuseIdentifier: FeaturedCell.identifier)
+            collectionView.register(UINib(nibName: "FavoritesCell", bundle: .main), forCellWithReuseIdentifier: FavoritesCell.identifier)
+            self.view.addSubview(collectionView)
+            collectionView.reloadData()
+        }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createStackView()
-        createButton()
-        createTextField()
-        view.backgroundColor = .blue
-
-        // Do any additional setup after loading the view.
+        // If uncomment will change the uitabbar on bottom to have same name ie "compsotional layout"
+//        self.title = "Compositional Layout"
+        navigationItem.title = "HOME"
+        self.view.backgroundColor = UIColor.white
+        setupCollectionView()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        collectionView.reloadData()
     }
-    */
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        collectionView.reloadData()
+    }
 
+}
+
+
+extension HomeVC: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        sections.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        var count = 0
+        switch section {
+            
+        case 0:
+            count = 1
+        case 1:
+            count = 4
+        case 2:
+            count = 1
+        default:
+            count = sections[section].numberOfItems
+            break
+        }
+        return count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        sections[indexPath.section].configureCell(collectionView: collectionView, indexPath: indexPath)
+        
+    }
 }

@@ -17,6 +17,7 @@ struct Item{
 struct Box{
     let date: String
     let items: [Item]
+    let image: String
 }
 
 struct Category{
