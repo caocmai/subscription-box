@@ -13,8 +13,7 @@ class FeaturedCell: UICollectionViewCell {
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var textLabel: UILabel!
     
-    @IBOutlet weak var anotherLabel: UILabel!
-    @IBOutlet weak var textLabel2: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
@@ -22,6 +21,6 @@ class FeaturedCell: UICollectionViewCell {
 
     func setup(){
         imgView.layer.cornerRadius = 10
-        textLabel.text = "ranodm"
+        textLabel.text = "random"
     }
 }

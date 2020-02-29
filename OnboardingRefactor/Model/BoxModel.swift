@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 struct Item{
@@ -28,4 +29,9 @@ struct Category{
 struct User{
     
 
+}
+
+struct NewBox {
+    let image: UIImage
+    let name: String
 }

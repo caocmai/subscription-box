@@ -5,6 +5,7 @@
 //  Created by Cao Mai on 2/20/20.
 //  Copyright © 2020 Make School. All rights reserved.
 //
+import SwiftUI
 
 import UIKit
 
@@ -20,30 +21,33 @@ class TabBarController: UITabBarController {
     
     func setupViewControllers() {
         
-        let vc = HomeVC()
-        vc.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "home"), tag: 0)
-        let navigationController = UINavigationController(rootViewController:vc)
+        let homeVC = HomeVC()
+        homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "home"), tag: 0)
+        let homeNav = UINavigationController(rootViewController: homeVC)
 
-        let vc2 = ListOfBoxes()
-        vc2.tabBarItem = UITabBarItem(title: "New", image: UIImage(named: "newbox"), tag: 0)
-        let navigationController2 = UINavigationController(rootViewController:vc2)
+        let newboxVC = NewBoxesVC()
+        newboxVC.tabBarItem = UITabBarItem(title: "New", image: UIImage(named: "newbox"), tag: 0)
+        let newboxNav = UINavigationController(rootViewController:newboxVC)
         
-        let vc3 = ListOfBoxes()
-        // Will not run
-        vc3.title = "HISTORY"
-        vc3.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 0)
-        let navigationController3 = UINavigationController(rootViewController:vc3)
-
-        
-        let vc4 = PreMyProfile()
-//        vc3.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 0)
-        vc4.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "smile"), tag: 0)
-        
-        
-        let navigationController4 = UINavigationController(rootViewController:vc4)
+        let boxesVC = ListOfBoxes()
+        // Will not run the .title to something custom
+//        boxesVC.title = "HISTORY"
+        let boxesNav = UINavigationController(rootViewController:boxesVC)
+        boxesNav.title = "SAMPLE"
+        boxesNav.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 0)
 
         
-        viewControllers = [navigationController, navigationController2, navigationController3, navigationController4]
+//        
+        // Tihis is what is need to get the profile view to show SwiftUI
+        let profileVC = ContentView() // SwiftUI
+        let hostNavVC = UIHostingController(rootView: profileVC)
+        // This changes it to regular ui kit
+        let profileNav = UINavigationController(rootViewController:hostNavVC)
+        
+        profileNav.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "smile"), tag: 0)
+        
+    
+        viewControllers = [homeNav, newboxNav, boxesNav, profileNav]
         
     }
     

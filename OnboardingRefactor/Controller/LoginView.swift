@@ -27,7 +27,7 @@ class LoginView: UIViewController {
         let label = UILabel()
         label.text = "FruitBox"
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 0.9789169521)
+        label.textColor = #colorLiteral(red: 0.9857142568, green: 1, blue: 0.2630112469, alpha: 0.9789169521)
         label.textAlignment = .center
         label.font = UIFont(name: "ChalkboardSE-Bold", size: 65)
         return label
@@ -190,7 +190,7 @@ class LoginView: UIViewController {
             titleConstraintEnd.isActive = true
 
             
-            UIView.animate(withDuration: 1.5, delay: 0.2,
+            UIView.animate(withDuration: 1.59, delay: 0.2,
             usingSpringWithDamping: 0.6, initialSpringVelocity: 0.0, options: [], animations: {
                 self.view.layoutIfNeeded()
                 self.appNameLabel.transform = CGAffineTransform(scaleX: 1, y: 1)

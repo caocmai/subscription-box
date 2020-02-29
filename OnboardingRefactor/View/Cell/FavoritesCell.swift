@@ -12,6 +12,8 @@ class FavoritesCell: UICollectionViewCell {
     static var identifier: String = "FavoritesCell"
     @IBOutlet weak var imgView: UIImageView!
     
+    @IBOutlet weak var fruitName: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
@@ -19,6 +21,8 @@ class FavoritesCell: UICollectionViewCell {
     
     func setup(){
         imgView.layer.cornerRadius = 10
+        fruitName.text = ""
+        
     }
     
 }

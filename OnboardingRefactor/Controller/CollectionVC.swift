@@ -20,7 +20,7 @@ class CollectionVC: UIViewController {
 //        let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewFlowLayout())
         
         //4CustomFlowLayout
-        let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewFlowLayout())
+        let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: flow)
         
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
@@ -31,7 +31,8 @@ class CollectionVC: UIViewController {
         
         // Customization
         collectionView.alwaysBounceVertical = true
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .gray
+        collectionView.layer.cornerRadius = 10
         
         //TODO: Register the cell
         collectionView.register(Cell.self, forCellWithReuseIdentifier: Cell.identifier)
@@ -39,12 +40,14 @@ class CollectionVC: UIViewController {
         return collectionView
     }()
     
+    
     var data: [String] = Array(repeating: "👾", count: 10)
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(collectionView)
+        navigationItem.title = "Select A New Box By Region"
 
         // Do any additional setup after loading the view.
     }
@@ -88,40 +91,42 @@ extension CollectionVC: UICollectionViewDataSource {
 
 //Either one or the other delegate to work
 // NEED TO COMMENT OUT This for custom flow to work!!
-extension CollectionVC: UICollectionViewDelegateFlowLayout {
-
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 120, height: 100)
-    }
-
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    }
-
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 2
-    }
-
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 2
-    }
-
-}
+//extension CollectionVC: UICollectionViewDelegateFlowLayout {
+//
+//    func collectionView(_ collectionView: UICollectionView,
+//                        layout collectionViewLayout: UICollectionViewLayout,
+//                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: 120, height: 100)
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView,
+//                        layout collectionViewLayout: UICollectionViewLayout,
+//                        insetForSectionAt section: Int) -> UIEdgeInsets {
+//        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView,
+//                        layout collectionViewLayout: UICollectionViewLayout,
+//                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        return 2
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView,
+//                        layout collectionViewLayout: UICollectionViewLayout,
+//                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        return 2
+//    }
+//
+//}
 
 
 // Custom View of Cell, not even custom view just the way to populate cell of collectionview
 class Cell: UICollectionViewCell {
     
     static var identifier: String = "Cell"
+    
     var textLabel: UILabel!
+    var image: UIImage!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -141,8 +146,11 @@ class Cell: UICollectionViewCell {
         self.backgroundColor = UIColor.lightGray
         self.textLabel = textLabel
         self.textLabel.font = UIFont(name: "Helvetica", size: 26)
+        self.layer.cornerRadius = 10
 
+        
     }
+
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -151,25 +159,8 @@ class Cell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
     }
+    
 
 }
 
-//Custom View of FLOW!
-class CustomFlowLayout: UICollectionViewFlowLayout {
 
-    override func prepare() {
-        super.prepare()
-        guard let cv = collectionView else { return }
-//        self.itemSize = CGSize(width: cv.bounds.inset(by: cv.layoutMargins).size.width, height: 70.0)
-        self.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        self.sectionInsetReference = .fromSafeArea
-        let availableWidth = cv.bounds.inset(by: cv.layoutMargins).size.width
-        let minColumnWidth = CGFloat(300)
-        let maxNumColumns = Int(availableWidth/minColumnWidth)
-        let cellWidth = (availableWidth / CGFloat(maxNumColumns)).rounded(.down)
-
-        self.itemSize = CGSize(width: cellWidth, height: 80.0)
-
-    }
-
-}

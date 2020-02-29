@@ -15,8 +15,8 @@ class BoxCell: UITableViewCell {
     let background : UIView = {
       let background = UIView()
 //      background.backgroundColor = #colorLiteral(red: 0.8186396956, green: 0.7955000997, blue: 1, alpha: 1)
-      background.layer.cornerRadius = 5
-      background.layer.masksToBounds = true
+//      background.layer.cornerRadius = 5
+//      background.layer.masksToBounds = true
       background.translatesAutoresizingMaskIntoConstraints = false
       return background
     }()
@@ -56,6 +56,7 @@ class BoxCell: UITableViewCell {
     
     // Adding custom content
     func setContents(box: Box) {
+        //Giving it a default value
         textLabel?.text = box.date
         imageView?.image = UIImage(named: box.image)
         

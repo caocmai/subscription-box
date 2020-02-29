@@ -13,7 +13,7 @@ class HomeVC: UIViewController {
     var collectionView: UICollectionView!
     
     lazy var sections: [Section] = [
-        TitleSection(title: "Featured Categories"),
+        TitleSection(title: "Featured Fruits"),
         FeaturedSection(),
         TitleSection(title: "Last Month's Favorites"),
         FavoritesSection()
@@ -68,13 +68,14 @@ extension HomeVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var count = 0
         switch section {
-            
         case 0:
             count = 1
         case 1:
             count = 4
         case 2:
             count = 1
+        case 3:
+            count = 7
         default:
             count = sections[section].numberOfItems
             break

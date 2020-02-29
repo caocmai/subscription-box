@@ -1,17 +1,21 @@
 //
-//  ListOfBoxes.swift
+//  OneBoxVC.swift
 //  OnboardingRefactor
 //
-//  Created by Cao Mai on 2/6/20.
+//  Created by Cao Mai on 2/28/20.
 //  Copyright © 2020 Make School. All rights reserved.
 //
 
 import UIKit
 
-class ListOfBoxes: UIViewController {
+class OneBoxVC: UIViewController {
     
     
-    var allBoxes = [Box]()
+    var currentBox : Box!
+    
+    var fruitName : [String] = []
+    var fruitImage : [String] = []
+    
     
     //should be equalent to : [Box] = []
 
@@ -27,10 +31,12 @@ class ListOfBoxes: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "PAST BOXES"
+        navigationItem.title = currentBox.date
+        
+//        print("cuurentbox", currentBox!)
 
         setTable()
-        getData()
+        getItems()
         
 
         // Do any additional setup after loading the view.
@@ -53,19 +59,17 @@ class ListOfBoxes: UIViewController {
         table.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor).isActive = true
     }
     
-    func getData() {
-        let mangoteen = Item(name: "Mangosteens", image: "mangosteen")
-        let dragonFruit = Item(name: "Dragonfruit", image: "dragon")
-        let starFruit = Item(name: "Starfruit", image: "starfruit")
-        let lychee = Item(name: "Lychee", image: "lychee")
+    
+    func getItems() {
         
-        let box = Box(date: "January 2020", items:[mangoteen, dragonFruit, starFruit, lychee, lychee, lychee, lychee], image: "box")
-        allBoxes.append(box)
-        let box2 = Box(date: "December 2019", items:[mangoteen, starFruit, starFruit, lychee, dragonFruit], image: "box")
-        allBoxes.append(box2)
-        let box3 = Box(date: "October 2019", items:[starFruit, dragonFruit, mangoteen], image: "box")
-        allBoxes.append(box3)
+        let items = currentBox!.items
+        print("itemsssssssssss", items)
+        
+        for item in items {
+            fruitName.append(item.name)
+            fruitImage.append(item.image)
 
+        }
     }
     
     
@@ -81,16 +85,18 @@ class ListOfBoxes: UIViewController {
 
 }
 
-extension ListOfBoxes: UITableViewDelegate, UITableViewDataSource {
+extension OneBoxVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allBoxes.count
+        return currentBox.items.count
 
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BoxCell", for: indexPath) as! BoxCell
-//        cell.textLabel?.text = "\(indexPath.row) \(allBoxes[indexPath.row].date)"
-        cell.setContents(box: allBoxes[indexPath.row])
+        
+        cell.textLabel?.text = "\(fruitName[indexPath.row])"
+        cell.imageView?.image = UIImage(named: "\(fruitImage[indexPath.row])")
+//        cell.setContents(box: testBoxes[indexPath.row])
 
         return cell
     }
@@ -102,15 +108,7 @@ extension ListOfBoxes: UITableViewDelegate, UITableViewDataSource {
 //        }
 //        alertController.addAction(okAction)
 //        self.present(alertController, animated: true, completion: nil)
-        print("Table is clicked")
-        
-//        let cell: BoxCell = tableView.cellForRow(at: indexPath) as! BoxCell
-//        print(cell)
-    
-        let nextVC = OneBoxVC()
-        nextVC.currentBox = allBoxes[indexPath.row]
-        self.navigationController?.pushViewController(nextVC, animated: true)
-        
+        print("Table cell is clicked")
     }
     
 }

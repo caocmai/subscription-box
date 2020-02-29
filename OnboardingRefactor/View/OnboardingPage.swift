@@ -46,7 +46,7 @@ class OnboardingPage: UIView {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.font = UIFont(name: "Helvetica", size: 20)
+        label.font = UIFont(name: "ChalkboardSE-Regular", size: 20)
         label.textColor = UIColor(white: 1.0, alpha: 0.8)
         return label
     }()
