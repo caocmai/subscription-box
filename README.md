@@ -2,10 +2,11 @@
 An iOS app for a subscription box for exotic fruits
 
 ## About
-An iOS app for a subscription box for exotic fruits, but can be used as a template for other subscription box based services.
+This app for a subscription box for exotic fruits, but can be used as a template for other subscription box based services. 
 
 ### Features
-* Login Screen
+* Splash Screen - with gradient
+* Login Screen - with animation
 * Home Screen
 * New Box Selection Screen
 * History Screen
@@ -17,13 +18,13 @@ An iOS app for a subscription box for exotic fruits, but can be used as a templa
 
 ### Run Locally
 
-Project code can be viewed locally  and run on Xcode's simulator by cloning or forking.
+Project code can be viewed locally  and run on Xcode's simulator by cloning or forking this repo.
 
 ## Built With
 * [Xcode - 11.3.1](https://developer.apple.com/xcode/) - The IDE used
 * [Swift - 5.1.4](https://developer.apple.com/swift/) - Programming Language
 
-## Authors
+## Author(s)
 * Cao Mai - portfolio can be found at:
 https://www.makeschool.com/portfolio/Cao-Mai
 
