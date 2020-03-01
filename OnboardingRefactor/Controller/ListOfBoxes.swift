@@ -10,11 +10,8 @@ import UIKit
 
 class ListOfBoxes: UIViewController {
     
-    
-    var allBoxes = [Box]()
-    
     //should be equalent to : [Box] = []
-    
+    var allBoxes = [Box]()
     
     let table: UITableView = {
         let table = UITableView()
@@ -50,7 +47,7 @@ class ListOfBoxes: UIViewController {
     }
     
     func getData() {
-        let mangoteen = Item(name: "Mangosteens", image: "mangosteen")
+        let mangoteen = Item(name: "Mangosteen", image: "mangosteen")
         let dragonFruit = Item(name: "Dragonfruit", image: "dragon")
         let starFruit = Item(name: "Starfruit", image: "starfruit")
         let lychee = Item(name: "Lychee", image: "lychee")
@@ -63,7 +60,6 @@ class ListOfBoxes: UIViewController {
         allBoxes.append(box3)
         
     }
-    
     
     /*
      // MARK: - Navigation
@@ -80,7 +76,6 @@ class ListOfBoxes: UIViewController {
 extension ListOfBoxes: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allBoxes.count
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -35,6 +35,7 @@
 		2C7765DB23E95407001B3A72 /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7765DA23E95407001B3A72 /* OnboardingPage.swift */; };
 		2CBA4E2E23EC9CA500ACF00E /* ListOfBoxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA4E2D23EC9CA500ACF00E /* ListOfBoxes.swift */; };
 		2CBA4E3023EC9D7500ACF00E /* BoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA4E2F23EC9D7500ACF00E /* BoxCell.swift */; };
+		2CBE409D240B757100162E4B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2CBE409C240B757100162E4B /* README.md */; };
 		2CDEFEAD23F31FDD00B5FBD5 /* BoxModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEFEAC23F31FDD00B5FBD5 /* BoxModel.swift */; };
 		2CF72F70240A3A6A000C74C3 /* CustomFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF72F6F240A3A6A000C74C3 /* CustomFlowLayout.swift */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,7 @@
 		2C7765DA23E95407001B3A72 /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
 		2CBA4E2D23EC9CA500ACF00E /* ListOfBoxes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfBoxes.swift; sourceTree = "<group>"; };
 		2CBA4E2F23EC9D7500ACF00E /* BoxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxCell.swift; sourceTree = "<group>"; };
+		2CBE409C240B757100162E4B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		2CDEFEAC23F31FDD00B5FBD5 /* BoxModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxModel.swift; sourceTree = "<group>"; };
 		2CF72F6F240A3A6A000C74C3 /* CustomFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,6 +176,7 @@
 		2C7765BF23E95282001B3A72 /* OnboardingRefactor */ = {
 			isa = PBXGroup;
 			children = (
+				2CBE409C240B757100162E4B /* README.md */,
 				2C4B57A82408E12000541C99 /* Profile */,
 				2C002BBB23E9EDEE006FCFBF /* Model */,
 				2C002BBD23E9EE0B006FCFBF /* Controller */,
@@ -248,6 +251,7 @@
 				2C4B57C02408EF0400541C99 /* TitleCell.xib in Resources */,
 				2C4B57C22408EF0400541C99 /* FeaturedCell.xib in Resources */,
 				2C7765CD23E95282001B3A72 /* LaunchScreen.storyboard in Resources */,
+				2CBE409D240B757100162E4B /* README.md in Resources */,
 				2C7765CA23E95282001B3A72 /* Assets.xcassets in Resources */,
 				2C4B57D5240911D500541C99 /* NewboxesCell.xib in Resources */,
 				2C4B57C12408EF0400541C99 /* FavoritesCell.xib in Resources */,

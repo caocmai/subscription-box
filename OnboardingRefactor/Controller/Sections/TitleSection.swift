@@ -12,7 +12,6 @@ struct TitleSection: Section {
     
     var numberOfItems: Int = 1
     
-    
     let title: String
 
     init (title: String) {

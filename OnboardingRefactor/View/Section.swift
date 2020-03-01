@@ -1,9 +1,9 @@
 //
 //  Section.swift
-//  CompositionalCollection
+//  OnboardingRefactor
 //
-//  Created by Adriana González Martínez on 2/12/20.
-//  Copyright © 2020 Adriana González Martínez. All rights reserved.
+//  Created by Cao Mai on 2/20/20.
+//  Copyright © 2020 Make School. All rights reserved.
 //
 
 import UIKit

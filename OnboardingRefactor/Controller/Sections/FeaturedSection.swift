@@ -13,7 +13,6 @@ struct FeaturedSection: Section {
     let images = ["dragon", "mangosteen", "lychee", "starfruit", "dragon"]
     let texts = ["Dragon Fruit", "Mangosteen", "Lychee", "Starfruit", "Dragon Fruit"]
     
-    
     func layoutSection() -> NSCollectionLayoutSection? {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
         
@@ -37,7 +36,4 @@ struct FeaturedSection: Section {
         cell.textLabel.text = texts[indexPath.row]
         return cell
     }
-    
-    
-    
 }

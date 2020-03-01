@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     var thirdView: OnboardingPage!
     var pagesArray: [OnboardingPage] = []
     
-    
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -23,12 +22,6 @@ class ViewController: UIViewController {
         scrollView.showsHorizontalScrollIndicator = false
         return scrollView
     }()
-    
-    // Valid syntax
-    let something: Int = {
-        return 12
-    }()
-    
     
     let container: UIStackView = {
         let view = UIStackView()
@@ -55,7 +48,6 @@ class ViewController: UIViewController {
         setViews()
         setPageControl()
     }
-    
     
     func setScrollView() {
         scrollView.delegate = self

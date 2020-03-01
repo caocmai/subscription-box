@@ -10,16 +10,11 @@ import UIKit
 
 class OneBoxVC: UIViewController {
     
-    
     var currentBox : Box!
     
     var fruitName : [String] = []
     var fruitImage : [String] = []
-    
-    
-    //should be equalent to : [Box] = []
-    
-    
+
     let table: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -32,9 +27,7 @@ class OneBoxVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = currentBox.date
-        
         //        print("cuurentbox", currentBox!)
-        
         setTable()
         getItems()
     }
@@ -56,7 +49,6 @@ class OneBoxVC: UIViewController {
         table.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor).isActive = true
     }
     
-    
     func getItems() {
         
         let items = currentBox!.items
@@ -68,7 +60,6 @@ class OneBoxVC: UIViewController {
             
         }
     }
-    
     
     /*
      // MARK: - Navigation
@@ -98,6 +89,14 @@ extension OneBoxVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let alertController = UIAlertController(title: "Fruit Selected", message: "\(fruitName[indexPath.row])", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "COOL", style: UIAlertAction.Style.default) {
+                UIAlertAction in
+        }
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+        
         print("Table cell is clicked")
     }
     

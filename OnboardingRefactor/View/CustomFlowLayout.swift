@@ -16,15 +16,14 @@ class CustomFlowLayout: UICollectionViewFlowLayout {
         super.prepare()
         guard let cv = collectionView else { return }
         //        self.itemSize = CGSize(width: cv.bounds.inset(by: cv.layoutMargins).size.width, height: 70.0)
-        self.sectionInset = UIEdgeInsets(top: 10, left: 3.5, bottom: 15, right: 3.5)
+        self.sectionInset = UIEdgeInsets(top: 10, left: 3, bottom: 15, right: 3)
         self.sectionInsetReference = .fromSafeArea
         let availableWidth = cv.bounds.inset(by: cv.layoutMargins).size.width
-        let minColumnWidth = CGFloat(160)
+        let minColumnWidth = CGFloat(135)
         let maxNumColumns = Int(availableWidth/minColumnWidth)
         let cellWidth = (availableWidth / CGFloat(maxNumColumns)).rounded(.down)
         
         self.itemSize = CGSize(width: cellWidth, height: 200)
-        
     }
     
 }

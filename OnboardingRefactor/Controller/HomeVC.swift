@@ -13,10 +13,10 @@ class HomeVC: UIViewController {
     var collectionView: UICollectionView!
     
     lazy var sections: [Section] = [
-        TitleSection(title: "Featured Fruits"),
-        FeaturedSection(),
-        TitleSection(title: "Last Month's Favorites"),
-        FavoritesSection()
+                                    TitleSection(title: "Featured Fruits"),
+                                    FeaturedSection(),
+                                    TitleSection(title: "Last Month's Favorites"),
+                                    FavoritesSection()
     ]
     
     lazy var collectionViewLayout: UICollectionViewLayout = {
@@ -71,7 +71,7 @@ extension HomeVC: UICollectionViewDataSource {
         let favoriateSec = FavoritesSection()
     
         var count = 0
-        
+        // A new case is excuted every time a new section is created, in this case it's 4.
         switch section {
         case 0:
             count = 1

@@ -62,8 +62,6 @@ class OnboardingPage: UIView {
         return button
     }()
     
-   
-    
     //Required, just because
     override init(frame: CGRect) {
         super.init(frame: frame)

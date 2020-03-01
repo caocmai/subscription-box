@@ -25,28 +25,24 @@ class TabBarController: UITabBarController {
 
         let newboxVC = NewBoxesVC()
         newboxVC.tabBarItem = UITabBarItem(title: "New", image: UIImage(named: "newbox"), tag: 0)
-        let newboxNav = UINavigationController(rootViewController:newboxVC)
+        let newboxNav = UINavigationController(rootViewController: newboxVC)
         
         let boxesVC = ListOfBoxes()
         // Will not run the .title to something custom
 //        boxesVC.title = "HISTORY"
-        let boxesNav = UINavigationController(rootViewController:boxesVC)
+        let boxesNav = UINavigationController(rootViewController: boxesVC)
         boxesNav.title = "SAMPLE"
         boxesNav.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 0)
 
-        
-//        
         // Tihis is what is need to get the profile view to show SwiftUI
         let profileVC = ContentView() // SwiftUI
         let hostNavVC = UIHostingController(rootView: profileVC)
         // This changes it to regular ui kit
-        let profileNav = UINavigationController(rootViewController:hostNavVC)
+        let profileNav = UINavigationController(rootViewController: hostNavVC)
         
         profileNav.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "smile"), tag: 0)
         
-    
         viewControllers = [homeNav, newboxNav, boxesNav, profileNav]
-        
     }
     
 
@@ -61,8 +57,6 @@ class TabBarController: UITabBarController {
     */
 
 }
-
-
 
 extension TabBarController: UITabBarControllerDelegate {
     
