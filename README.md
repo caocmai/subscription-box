@@ -2,15 +2,15 @@
 An iOS app for a subscription box for exotic fruits
 
 ## About
-This app for a subscription box for exotic fruits, but can be used as a template for other subscription box based services. 
+This app is for a subscription box for exotic fruits, but can be used as a template for other subscription box based services. 
 
 ### Features
 * Splash Screen - with gradient
 * Login Screen - with animation
-* Home Screen
+* Home Screen - using compositional layout
 * New Box Selection Screen
 * History Screen
-* User Profile Screen
+* User Profile Screen - using SwiftUI
 
 ### Basic App Walk-through
 ![](projectWalk.gif)
