@@ -33,4 +33,4 @@ https://www.makeschool.com/portfolio/Cao-Mai
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
-Thanks to Adriana (instructor), Wesley(Teacher's Assistant), and others for your help in this project!
+Thanks to Adriana (Instructor), Wesley(Teacher's Assistant), and others for your help in this project!
