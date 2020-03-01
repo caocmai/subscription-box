@@ -1,3 +1,10 @@
+//
+//  FavoritesSection.swift
+//  OnboardingRefactor
+//
+//  Created by Cao Mai on 2/20/20.
+//  Copyright © 2020 Make School. All rights reserved.
+//
 
 import UIKit
 
@@ -6,7 +13,7 @@ struct FavoritesSection: Section {
     
     let images = ["starfruit", "mangosteen", "lychee", "starfruit", "dragon", "starfruit", "starfruit", ]
     let texts = ["Starfruit", "Mangosteen", "Lychee", "Starfruit", "Dragon Fruit", "Starfruit", "Starfruit", ]
-
+    
     func layoutSection() -> NSCollectionLayoutSection? {
         
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
@@ -23,12 +30,12 @@ struct FavoritesSection: Section {
         return section
     }
     
-     func configureCell(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-           
-           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoritesCell.identifier, for: indexPath) as! FavoritesCell
-           cell.imgView.image = UIImage(named: images[indexPath.row])
-           cell.fruitName.text = texts[indexPath.row]
-           return cell
-       }
-       
+    func configureCell(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoritesCell.identifier, for: indexPath) as! FavoritesCell
+        cell.imgView.image = UIImage(named: images[indexPath.row])
+        cell.fruitName.text = texts[indexPath.row]
+        return cell
+    }
+    
 }

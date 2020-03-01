@@ -1,4 +1,10 @@
-
+//
+//  TitleSection.swift
+//  OnboardingRefactor
+//
+//  Created by Cao Mai on 2/20/20.
+//  Copyright © 2020 Make School. All rights reserved.
+//
 
 import UIKit
 

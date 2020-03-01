@@ -9,13 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    // this is similar to var something: Int, then later something = 4, or like var something: Int = 13
+
     var firstView: OnboardingPage!
     var secondView: OnboardingPage!
     var thirdView: OnboardingPage!
     var pagesArray: [OnboardingPage] = []
-
+    
     
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -29,7 +28,7 @@ class ViewController: UIViewController {
     let something: Int = {
         return 12
     }()
-        
+    
     
     let container: UIStackView = {
         let view = UIStackView()
@@ -49,14 +48,14 @@ class ViewController: UIViewController {
         pageControl.currentPageIndicatorTintColor = UIColor.white
         return pageControl
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setScrollView()
         setViews()
         setPageControl()
     }
-
+    
     
     func setScrollView() {
         scrollView.delegate = self
@@ -96,9 +95,9 @@ class ViewController: UIViewController {
     
     @objc func toLoginPage(){
         print("to login page")
-//        let nextVC = LoginView()
-//        self.navigationController?.pushViewController(nextVC, animated: true)
-//        let navigationController = UINavigationController(rootViewController: LoginView())
+        //        let nextVC = LoginView()
+        //        self.navigationController?.pushViewController(nextVC, animated: true)
+        //        let navigationController = UINavigationController(rootViewController: LoginView())
         self.view.window!.rootViewController = LoginView()
     }
     
@@ -109,16 +108,8 @@ class ViewController: UIViewController {
         pageControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
         pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         pageControl.heightAnchor.constraint(equalToConstant: 50).isActive = true
-    
     }
     
-    // Use this function to move the dots, but need to have ViewController: UIScrollViewDelegate
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        let pageIndex = round(scrollView.contentOffset.x/scrollView.frame.size.width)
-//        pageControl.currentPage = Int(pageIndex)
-//
-//    }
-
 }
 
 

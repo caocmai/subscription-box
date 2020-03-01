@@ -11,11 +11,8 @@ import UIKit
 class NewboxesCell: UICollectionViewCell {
     
     static var identifier: String = "NewboxesCell"
-
-    
     
     @IBOutlet weak var image: UIImageView!
-    
     @IBOutlet weak var name: UILabel!
     
     override func awakeFromNib() {
@@ -24,14 +21,13 @@ class NewboxesCell: UICollectionViewCell {
         self.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         self.layer.cornerRadius = 10
         self.image.contentMode = .scaleAspectFit
-
     }
     
-    public func configure(with model: NewBox) {
+    public func setUp(with model: NewBox) {
         image.image = model.image
         name.text = model.name
     }
-
+    
 }
 
 

@@ -15,8 +15,6 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         setupViewControllers()
         self.delegate = self
-
-        // Do any additional setup after loading the view.
     }
     
     func setupViewControllers() {

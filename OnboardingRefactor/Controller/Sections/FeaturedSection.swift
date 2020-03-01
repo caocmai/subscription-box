@@ -1,12 +1,18 @@
-
+//
+//  FeaturedSection.swift
+//  OnboardingRefactor
+//
+//  Created by Cao Mai on 2/20/20.
+//  Copyright © 2020 Make School. All rights reserved.
+//
 
 import UIKit
 
 struct FeaturedSection: Section {
     let numberOfItems = 4
-    let images = ["dragon", "mangosteen", "lychee", "starfruit"]
-    let texts = ["Dragon Fruit", "Mangosteen", "Lychee", "Starfruit"]
-
+    let images = ["dragon", "mangosteen", "lychee", "starfruit", "dragon"]
+    let texts = ["Dragon Fruit", "Mangosteen", "Lychee", "Starfruit", "Dragon Fruit"]
+    
     
     func layoutSection() -> NSCollectionLayoutSection? {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))

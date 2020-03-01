@@ -21,17 +21,18 @@ struct Box{
     let image: String
 }
 
-struct Category{
-    let name: String
-    let image: String
-}
-
-struct User{
-    
-
-}
-
 struct NewBox {
     let image: UIImage
     let name: String
 }
+
+// Maybe will add more later
+//struct Category{
+//    let name: String
+//    let image: String
+//}
+//
+//struct User{
+//
+//
+//}

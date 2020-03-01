@@ -10,7 +10,8 @@ import SwiftUI
 
 struct CircleImage: View {
     var body: some View {
-        Image("simpson")
+    
+        Image("man")
             .resizable()
             .scaledToFit()
             .frame(width: 200.0,height:200)

@@ -18,34 +18,24 @@ class NewBoxesVC: UIViewController, UICollectionViewDataSource, UICollectionView
                           NewBox(image: #imageLiteral(resourceName: "australia"), name: "Australia"),
     ]
     
-    
     lazy var collectionView: UICollectionView = {
         
         //4CustomFlowLayout
         let flow = CustomFlowLayout()
         
-        // Instantiating the UICollectionView, using the default flow layout
-        //        let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewFlowLayout())
-        
         //4CustomFlowLayout
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: flow)
         
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
-        //TODO: Set the datasource & delegate
-        
-        
+                
         // Customization
         collectionView.alwaysBounceVertical = true
         collectionView.backgroundColor = .white
         
-        //TODO: Register the cell
-        
+        //Registering the cell
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(UINib.init(nibName: "NewboxesCell", bundle: nil), forCellWithReuseIdentifier: "NewboxesCell")
-        
-        
         return collectionView
     }()
     
@@ -62,26 +52,18 @@ class NewBoxesVC: UIViewController, UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewboxesCell", for: indexPath) as! NewboxesCell
-        cell.configure(with: data[indexPath.row])
+        cell.setUp(with: data[indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-        print("Touched the collected view")
         
-        print(indexPath.row)
-        
+        print("indexPath.row = ", indexPath.row)
         // Find the current cell
         let cell: NewboxesCell = collectionView.cellForItem(at: indexPath) as! NewboxesCell
-        
+        print(cell)
         cell.backgroundColor = #colorLiteral(red: 1, green: 0.4195970297, blue: 0.4206782579, alpha: 1)
-
-        
-        
     }
-    
 
-    
 }
 

@@ -14,26 +14,22 @@ class ListOfBoxes: UIViewController {
     var allBoxes = [Box]()
     
     //should be equalent to : [Box] = []
-
-
+    
+    
     let table: UITableView = {
-       let table = UITableView()
-       table.translatesAutoresizingMaskIntoConstraints = false
-       table.rowHeight = 100
-        // Can move to here instead of in the setup function
-
-       return table
+        let table = UITableView()
+        table.translatesAutoresizingMaskIntoConstraints = false
+        table.rowHeight = 100
+        
+        return table
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "PAST BOXES"
-
+        
         setTable()
         getData()
-        
-
-        // Do any additional setup after loading the view.
     }
     
     func setTable(){
@@ -41,7 +37,7 @@ class ListOfBoxes: UIViewController {
         view.backgroundColor = .white
         
         table.register(BoxCell.self, forCellReuseIdentifier: "BoxCell")
-
+        
         
         // This has to be here though
         table.delegate = self
@@ -65,52 +61,40 @@ class ListOfBoxes: UIViewController {
         allBoxes.append(box2)
         let box3 = Box(date: "October 2019", items:[starFruit, dragonFruit, mangoteen], image: "box")
         allBoxes.append(box3)
-
+        
     }
     
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 extension ListOfBoxes: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allBoxes.count
-
+        
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BoxCell", for: indexPath) as! BoxCell
-//        cell.textLabel?.text = "\(indexPath.row) \(allBoxes[indexPath.row].date)"
+        //        cell.textLabel?.text = "\(indexPath.row) \(allBoxes[indexPath.row].date)"
         cell.setContents(box: allBoxes[indexPath.row])
-
+        
         return cell
     }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let alertController = UIAlertController(title: "Hello", message: "You've tapped in the \(indexPath.row) row, from section \(indexPath.section)", preferredStyle: .alert)
-//        let okAction = UIAlertAction(title: "GO AWAY", style: UIAlertAction.Style.default) {
-//                UIAlertAction in
-//        }
-//        alertController.addAction(okAction)
-//        self.present(alertController, animated: true, completion: nil)
-        print("Table is clicked")
-        
-//        let cell: BoxCell = tableView.cellForRow(at: indexPath) as! BoxCell
-//        print(cell)
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let nextVC = OneBoxVC()
         nextVC.currentBox = allBoxes[indexPath.row]
         self.navigationController?.pushViewController(nextVC, animated: true)
-        
     }
     
 }

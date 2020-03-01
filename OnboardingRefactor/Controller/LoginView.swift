@@ -41,13 +41,13 @@ class LoginView: UIViewController {
         button.layer.masksToBounds = true
         button.backgroundColor = #colorLiteral(red: 0.838563621, green: 0.994648993, blue: 0.7698670626, alpha: 1)
         return button
-       }()
+    }()
     
     let textField: UITextField = {
         let text = UITextField()
         text.backgroundColor = .init(white: 1.0, alpha: 0)
         text.translatesAutoresizingMaskIntoConstraints = false
-
+        
         return text
     }()
     
@@ -56,8 +56,8 @@ class LoginView: UIViewController {
         text.backgroundColor = .init(white: 1.0, alpha: 0)
         text.translatesAutoresizingMaskIntoConstraints = false
         text.isSecureTextEntry = true
-
-
+        
+        
         return text
     }()
     
@@ -65,7 +65,7 @@ class LoginView: UIViewController {
     let loginImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-
+        
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -81,54 +81,38 @@ class LoginView: UIViewController {
     }
     
     func createButton(){
-//        stackView.addArrangedSubview(loginButton)
+        //        stackView.addArrangedSubview(loginButton)
         view.addSubview(loginButton)
         loginButton.setTitle("Login", for: .normal)
         
         loginButton.addTarget(self, action: #selector(toHomePage), for: .touchUpInside)
         
-//        loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
-//        loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
-//        loginButton.topAnchor.constraint(equalTo: stackView.bottomAnchor).isActive = true
-//        loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-//        
         
         loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
         loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
-        loginButton.topAnchor.constraint(equalTo: stackView.bottomAnchor).isActive = true
+        loginButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 45).isActive = true
         loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         loginButton.alpha = 0.5
         
         UIView.animate(withDuration: 0.5, delay: 0.2, options: [], animations: {
             self.loginButton.alpha = 1.0
-         },completion: nil)
-
+        },completion: nil)
+        
     }
     
 
-//    @objc func toHomePage(){
-//        print("to home page")
-//        //        let nextVC = LoginView()
-//        //        self.navigationController?.pushViewController(nextVC, animated: true)
-//        let navigationController = UINavigationController(rootViewController: HomeVC())
-//        self.view.window!.rootViewController = navigationController
-//
-//        }
-    
-    
     @objc func toHomePage(){
         print("to home page")
         self.view.window!.rootViewController = TabBarController()
         
         // Tihis is what is need to get the profile view to show SwiftUI
-//        let profileView = ContentView()
-//        let viewController = UIHostingController(rootView: profileView)
-//        then move the then just put the viewcontroller in it instead
+        //        let profileView = ContentView()
+        //        let viewController = UIHostingController(rootView: profileView)
+        //        then move the then just put the viewcontroller in it instead
         
     }
     
-
     
     func createTextField() {
         view.addSubview(textField)
@@ -136,24 +120,20 @@ class LoginView: UIViewController {
         textField.font = UIFont.init(name: "Helvetica", size: 30.0)
         
         textField.heightAnchor.constraint(equalToConstant: 40).isActive = true
-
-        textField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        textField.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        textField.bottomAnchor.constraint(equalTo: loginButton.topAnchor, constant: -75).isActive = true
         
-
+        textField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        //        textField.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        textField.bottomAnchor.constraint(equalTo: loginButton.topAnchor, constant: -75).isActive = true
     }
     
     func createPasswordField() {
         view.addSubview(passwordField)
         passwordField.placeholder = "Password"
         passwordField.font = UIFont.init(name: "Helvetica", size: 30.0)
-
+        
         passwordField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        textField.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         passwordField.bottomAnchor.constraint(equalTo: loginButton.topAnchor, constant: -30).isActive = true
         passwordField.leadingAnchor.constraint(equalTo: textField.leadingAnchor).isActive = true
-    
     }
     
     func createLoginImage(){
@@ -163,45 +143,34 @@ class LoginView: UIViewController {
         loginImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         loginImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 170).isActive = true
         loginImage.bottomAnchor.constraint(equalTo: textField.topAnchor, constant: -15).isActive = true
-
-
-
     }
     
     func setLabel(){
-            
-            self.view.addSubview(appNameLabel)
-
-            titleConstraintStart = appNameLabel.centerYAnchor.constraint(equalTo: loginImage.centerYAnchor, constant: 5)
-            titleConstraintStart.isActive = true
-            
-            //Right now it's off
-            titleConstraintEnd = appNameLabel.centerYAnchor.constraint(equalTo: loginImage.topAnchor, constant: -60)
-            
-            appNameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            appNameLabel.transform = CGAffineTransform(scaleX: 0, y: 0)
-
-            
-        }
+        
+        self.view.addSubview(appNameLabel)
+        
+        titleConstraintStart = appNameLabel.centerYAnchor.constraint(equalTo: loginImage.centerYAnchor, constant: 5)
+        titleConstraintStart.isActive = true
+        
+        //Right now it's off
+        titleConstraintEnd = appNameLabel.centerYAnchor.constraint(equalTo: loginImage.topAnchor, constant: -60)
+        
+        appNameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        appNameLabel.transform = CGAffineTransform(scaleX: 0, y: 0)
+    }
     
     override func viewDidAppear(_ animated: Bool) {
-            
-            titleConstraintStart.isActive = false
-            titleConstraintEnd.isActive = true
-
-            
-            UIView.animate(withDuration: 1.59, delay: 0.2,
-            usingSpringWithDamping: 0.6, initialSpringVelocity: 0.0, options: [], animations: {
-                self.view.layoutIfNeeded()
-                self.appNameLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
-            }, completion: nil)
-            
-            
-            
-        }
+        
+        titleConstraintStart.isActive = false
+        titleConstraintEnd.isActive = true
+        
+        UIView.animate(withDuration: 1.59, delay: 0.2,
+                       usingSpringWithDamping: 0.6, initialSpringVelocity: 0.0, options: [], animations: {
+                        self.view.layoutIfNeeded()
+                        self.appNameLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }, completion: nil)
+    }
     
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
         createStackView()
@@ -210,21 +179,18 @@ class LoginView: UIViewController {
         createPasswordField()
         view.backgroundColor = #colorLiteral(red: 0.9931656718, green: 1, blue: 0.7396706343, alpha: 0.8795216182)
         createLoginImage()
-        setLabel()
-
-
-        // Do any additional setup after loading the view.
+        setLabel()        
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

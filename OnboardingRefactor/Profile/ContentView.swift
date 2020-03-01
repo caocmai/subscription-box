@@ -10,10 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    
     var body: some View {
-        
-        
         VStack {
             MapView()
                 .edgesIgnoringSafeArea(.top)
@@ -24,19 +21,17 @@ struct ContentView: View {
                 .padding(.bottom, -130)
             
             VStack(alignment: .center) {
-                Text("Homer Simpson")
+                Text("Johnny Appleseed")
                     .font(.title)
-                HStack(alignment: .top) {
-                    Text("Currently resides in Huntington Beach, CA")
-                        .font(.subheadline)
-                    Spacer()
-                    Text("Loves fruits from South America")
-                        .font(.subheadline)
-                }
+                    .padding()
+
+                Text("Currently resides in Huntington Beach, CA")
+                    .font(.subheadline)
+                Text("Loves fruits from South America")
+                    .font(.subheadline)
             }
             .padding()
             
-            Spacer()
         }
     }
 }
