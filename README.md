@@ -1,4 +1,4 @@
-# subscription-box 
+# Subscription Box 
 An iOS app for a subscription box for exotic fruits
 
 ## About
