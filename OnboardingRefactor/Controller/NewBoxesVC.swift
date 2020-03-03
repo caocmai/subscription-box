@@ -62,7 +62,7 @@ class NewBoxesVC: UIViewController, UICollectionViewDataSource, UICollectionView
         // Find the current cell
         let cell: NewboxesCell = collectionView.cellForItem(at: indexPath) as! NewboxesCell
         print(cell)
-        cell.backgroundColor = #colorLiteral(red: 1, green: 0.4195970297, blue: 0.4206782579, alpha: 1)
+        cell.backgroundColor = #colorLiteral(red: 1, green: 0.5756825209, blue: 0.5681426525, alpha: 0.9445098459)
     }
 
 }

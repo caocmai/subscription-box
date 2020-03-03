@@ -12,8 +12,7 @@ class OneBoxVC: UIViewController {
     
     var currentBox : Box!
     
-    var fruitName : [String] = []
-    var fruitImage : [String] = []
+    var allItems : [Item] = []
 
     let table: UITableView = {
         let table = UITableView()
@@ -35,7 +34,6 @@ class OneBoxVC: UIViewController {
     func setTable(){
         self.view.addSubview(table)
         view.backgroundColor = .white
-        
         table.register(BoxCell.self, forCellReuseIdentifier: "BoxCell")
         
         
@@ -54,10 +52,9 @@ class OneBoxVC: UIViewController {
         let items = currentBox!.items
         print("itemsssssssssss", items)
         
+        
         for item in items {
-            fruitName.append(item.name)
-            fruitImage.append(item.image)
-            
+            allItems.append(item)
         }
     }
     
@@ -82,15 +79,16 @@ extension OneBoxVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BoxCell", for: indexPath) as! BoxCell
         
-        cell.textLabel?.text = "\(fruitName[indexPath.row])"
-        cell.imageView?.image = UIImage(named: "\(fruitImage[indexPath.row])")
-        
+//        cell.textLabel?.text = "\(fruitName[indexPath.row])"
+//        cell.imageView?.image = UIImage(named: "\(fruitImage[indexPath.row])")
+//        cell.setContents(box: currentBox?[indexPath.row])
+        cell.setOneBox(item: allItems[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let alertController = UIAlertController(title: "Fruit Selected", message: "\(fruitName[indexPath.row])", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Fruit Selected", message: "\(allItems[indexPath.row].name)", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "COOL", style: UIAlertAction.Style.default) {
                 UIAlertAction in
         }

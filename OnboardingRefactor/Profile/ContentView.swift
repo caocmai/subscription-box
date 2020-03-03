@@ -25,7 +25,7 @@ struct ContentView: View {
                     .font(.title)
                     .padding()
 
-                Text("Currently resides in Huntington Beach, CA")
+                Text("Hometown: Huntington Beach, CA")
                     .font(.subheadline)
                 Text("Loves fruits from South America")
                     .font(.subheadline)
