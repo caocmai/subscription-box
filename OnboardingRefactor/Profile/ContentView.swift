@@ -11,10 +11,11 @@ import SwiftUI
 struct ContentView: View {
     
     var body: some View {
+        NavigationView {
         VStack {
             MapView()
                 .edgesIgnoringSafeArea(.top)
-                .frame(height: 300)
+                .frame(height: 250)
             
             CircleImage()
                 .offset(y: -130)
@@ -31,8 +32,10 @@ struct ContentView: View {
                     .font(.subheadline)
             }
             .padding()
-            
+        .navigationBarTitle(Text("Profile"), displayMode: .inline)
         }
+            
+    }
     }
 }
 

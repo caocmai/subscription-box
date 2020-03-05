@@ -38,11 +38,11 @@ class TabBarController: UITabBarController {
         let profileVC = ContentView() // SwiftUI
         let hostNavVC = UIHostingController(rootView: profileVC)
         // This changes it to regular ui kit
-        let profileNav = UINavigationController(rootViewController: hostNavVC)
+//        let profileNav = UINavigationController(rootViewController: hostNavVC)
         
-        profileNav.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "smile"), tag: 0)
+        hostNavVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "smile"), tag: 0)
         
-        viewControllers = [homeNav, newboxNav, boxesNav, profileNav]
+        viewControllers = [homeNav, newboxNav, boxesNav, hostNavVC]
     }
     
 

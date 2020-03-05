@@ -13,6 +13,9 @@ class ListOfBoxes: UIViewController {
     //should be equalent to : [Box] = []
     var allBoxes = [Box]()
     
+    var animated: Int = 0
+    var isAnimationLocked: Bool = false
+    
     let table: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -34,6 +37,8 @@ class ListOfBoxes: UIViewController {
         view.backgroundColor = .white
         
         table.register(BoxCell.self, forCellReuseIdentifier: "BoxCell")
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+
         
         
         // This has to be here though
@@ -90,6 +95,19 @@ extension ListOfBoxes: UITableViewDelegate, UITableViewDataSource {
         let nextVC = OneBoxVC()
         nextVC.currentBox = allBoxes[indexPath.row]
         self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+            cell.transform = CGAffineTransform(translationX: tableView.bounds.width, y: 0)
+
+            UIView.animate(
+                withDuration: 0.35, delay: 0.25 * Double(indexPath.row), options: [.curveEaseInOut],
+            animations: {
+                    cell.transform = CGAffineTransform(translationX: 0, y: 0)
+            })
+        
+        
     }
     
 }

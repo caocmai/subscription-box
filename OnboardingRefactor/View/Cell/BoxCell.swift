@@ -64,9 +64,7 @@ class BoxCell: UITableViewCell {
         imageView?.translatesAutoresizingMaskIntoConstraints = false
         imageView?.heightAnchor.constraint(equalToConstant: 60).isActive = true
         imageView?.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        //        imageView?.topAnchor.constraint(equalTo: self.topAnchor, constant: 20).isActive = true
-        //        imageView?.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 20).isActive = true
-        
+  
         imageView?.centerYAnchor.constraint(equalTo: background.centerYAnchor).isActive = true
         
         textLabel?.translatesAutoresizingMaskIntoConstraints = false
@@ -84,8 +82,6 @@ class BoxCell: UITableViewCell {
         imageView?.translatesAutoresizingMaskIntoConstraints = false
         imageView?.heightAnchor.constraint(equalToConstant: 60).isActive = true
         imageView?.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        //        imageView?.topAnchor.constraint(equalTo: self.topAnchor, constant: 20).isActive = true
-        //        imageView?.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 20).isActive = true
         
         imageView?.centerYAnchor.constraint(equalTo: background.centerYAnchor).isActive = true
         

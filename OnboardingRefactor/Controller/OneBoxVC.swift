@@ -45,6 +45,7 @@ class OneBoxVC: UIViewController {
         table.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).isActive = true
         table.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor).isActive = true
         table.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor).isActive = true
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     func getItems() {
