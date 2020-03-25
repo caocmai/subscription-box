@@ -2,7 +2,7 @@
 An iOS app for a subscription box for exotic fruits
 
 ## About
-This app is for a subscription box for exotic fruits, but can be used as a template for other subscription box based services. 
+This app is for a subscription box of exotic fruits, but can be used as a template for other subscription box services. 
 
 ### Features
 * Splash Screen - with gradient
